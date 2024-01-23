@@ -45,8 +45,8 @@ public class TodoController {
         return todoResponseDtoList;
     }
 
-    @GetMapping("/{id}")
-    public TodoResponseDto getTodoById(@PathVariable Long id){
+    @GetMapping("/param")
+    public TodoResponseDto getTodoById(@RequestParam Long id){
         if(todoList.containsKey(id)){
             Todo todo = todoList.get(id);
             TodoResponseDto todoResponseDto = new TodoResponseDto(todo);
@@ -56,8 +56,8 @@ public class TodoController {
         }
         }
 
-    @PutMapping("/{id}/{password}")
-    public TodoResponseDto updateTodo(@PathVariable Long id, @PathVariable Long password, @RequestBody TodoUpdateRequestDto requestDto){
+    @PutMapping("/param")
+    public TodoResponseDto updateTodo(@RequestParam Long id, @RequestParam Long password, @RequestBody TodoUpdateRequestDto requestDto){
         if(todoList.containsKey(id)){
             Todo todo = todoList.get(id);
             if(todo.getPassword().equals(password)){
@@ -74,8 +74,8 @@ public class TodoController {
         }
     }
 
-    @DeleteMapping("/{id}/{password}")
-    public String deleteTodo(@PathVariable Long id, @PathVariable Long password){
+    @DeleteMapping("/param")
+    public String deleteTodo(@RequestParam Long id, @RequestParam Long password){
         if(todoList.containsKey(id)){
             Todo todo = todoList.get(id);
             if(todo.getPassword().equals(password)){
