@@ -23,7 +23,7 @@ public class Todo {
     public Todo(TodoCreateRequestDto requestDto) {
         this.username = requestDto.getUsername();
         this.title = requestDto.getTitle();
-        this.contents = requestDto.getTitle();
+        this.contents = requestDto.getContents();
         this.password = requestDto.getPassword();
         this.date = new SimpleDateFormat("yyyy-MM-dd").format(requestDto.getDate());
     }
