@@ -2,9 +2,6 @@ package com.sparta.todoproject.dto;
 
 import com.sparta.todoproject.entity.Todo;
 import lombok.Getter;
-
-import java.util.Comparator;
-
 @Getter
 public class TodoResponseDto{
     private Long id;
