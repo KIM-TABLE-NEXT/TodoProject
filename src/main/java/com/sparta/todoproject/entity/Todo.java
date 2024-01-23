@@ -25,7 +25,7 @@ public class Todo {
         this.title = requestDto.getTitle();
         this.contents = requestDto.getContents();
         this.password = requestDto.getPassword();
-        this.date = new SimpleDateFormat("yyyy-MM-dd").format(requestDto.getDate());
+        this.date = requestDto.getDate();
     }
 
     public void update(TodoUpdateRequestDto requestDto) {

@@ -4,7 +4,6 @@ import com.sparta.todoproject.dto.TodoCreateRequestDto;
 import com.sparta.todoproject.dto.TodoResponseDto;
 import com.sparta.todoproject.dto.TodoUpdateRequestDto;
 import com.sparta.todoproject.entity.Todo;
-import com.sparta.todoproject.util.TodoSort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -29,19 +28,8 @@ public class TodoController {
 
     @GetMapping("")
     public List<TodoResponseDto> getAllTodo(){
-        List<TodoResponseDto> todoResponseDtoList = todoList.values().stream().map(TodoResponseDto::new).toList();
-//       Collections.sort(todoResponseDtoList, new Comparator<TodoResponseDto>() {
-//           @Override
-//           public int compare(TodoResponseDto o1, TodoResponseDto o2){
-//               if(o1.getDate().equals(o2.getDate()))
-//                   return 0;
-//               if(o1.getDate().compareTo(o2.getDate())>0)
-//                   return -1;
-//               else
-//                   return 1;
-//           }
-//       });
-       // Collections.sort(todoResponseDtoList, (o1, o2) -> o2.getDate().compareTo(o1.getDate()));
+        List<TodoResponseDto> todoResponseDtoList = new ArrayList<>(todoList.values().stream().map(TodoResponseDto::new).toList());
+       Collections.sort(todoResponseDtoList, (o1, o2) -> o2.getDate().compareTo(o1.getDate()));
         return todoResponseDtoList;
     }
 
